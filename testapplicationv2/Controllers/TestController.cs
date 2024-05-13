@@ -12,9 +12,9 @@ namespace testapplicationv2.Controllers
         }
 
         // GET: TestController/Details/5
-        public ActionResult Details(int id)
+        public string Details(int id)
         {
-            return View();
+            return "hello world";
         }
 
         // GET: TestController/Create
@@ -44,20 +44,7 @@ namespace testapplicationv2.Controllers
             return View();
         }
 
-        // POST: TestController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
 
         // GET: TestController/Delete/5
         public ActionResult Delete(int id)
@@ -65,19 +52,6 @@ namespace testapplicationv2.Controllers
             return View();
         }
 
-        // POST: TestController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
     }
 }
