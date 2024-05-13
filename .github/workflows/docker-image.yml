@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build -f /Dockerfile -t thisoban/testaplicationv2:latest
+      run: docker build -f testapplicationv2/Dockerfile -t thisoban/testaplicationv2:latest
     - name: publish
       run: |
           docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
