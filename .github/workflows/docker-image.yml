@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       working-directory: ./
-      run: docker build --testapplicationv2/Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build --testapplicationv2/Dockerfile --tag latest
     - name: publish
       run: |
           docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
