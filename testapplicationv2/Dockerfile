@@ -13,11 +13,11 @@ COPY ["testapplicationv2.csproj", "testapplicationv2/"]
 RUN dotnet restore "./testapplicationv2/testapplicationv2.csproj"
 COPY . .
 WORKDIR "/src/testapplicationv2"
-RUN dotnet build "testapplicationv2.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "testapplicationv2.csproj" -c Release -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./testapplicationv2.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./testapplicationv2.csproj"  -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
