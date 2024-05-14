@@ -20,7 +20,7 @@ jobs:
         
     - name: Build the Docker image
       run: docker build -f Dockerfile -t thisoban/testaplicationv2:latest testapplicationv2/
-    - name: publish
-      run: |
-          docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push thisoban/testing:latest
+   # - name: publish
+    #  run: |
+        #  docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
+       #   docker push thisoban/testing:latest
