@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Build the Docker image
-      run: docker build -f Dockerfile -t thisoban/testing:latest -v
+      run: docker build -f Dockerfile -t thisoban/testing:latest. -v
     - name: publish
       run: |
           docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
