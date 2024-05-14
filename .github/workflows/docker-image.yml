@@ -12,8 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v4
+    - name: Set up .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '8.0.x'
+        
     - name: Build the Docker image
-      run: docker build -f Dockerfile -t thisoban/testing:latest testapplicationv2/
+      run: docker build -f testapplicationv2/Dockerfile -t thisoban/testaplicationv2:latest testapplicationv2/
     - name: publish
       run: |
           docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
