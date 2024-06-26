@@ -19,7 +19,7 @@ jobs:
         dotnet-version: '8.0.x'
         
     - name: Build the Docker image
-      run: docker build -f testapplicaitonv2/Dockerfile -t thisoban/testaplicationv2:latest testapplicationv2/
+      run: docker build -f testapplicationv2/Dockerfile -t thisoban/testaplicationv2:latest testapplicationv2/
    # - name: publish
     #  run: |
         #  docker login -u thisoban -p ${{ secrets.DOCKER_HUB_TOKEN }}
