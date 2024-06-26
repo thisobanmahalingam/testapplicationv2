@@ -6,7 +6,7 @@ namespace testapplicationv2.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        public static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
@@ -28,6 +28,13 @@ namespace testapplicationv2.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        public class WeatherForecast
+        {
+            public DateOnly Date { get; set; }
+            public int TemperatureC { get; set; }
+            public string Summary { get; set; }
         }
     }
 }
