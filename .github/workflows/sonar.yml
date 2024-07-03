@@ -37,6 +37,7 @@ jobs:
       - name: SonarQube Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
         run: |
           sonar-scanner \
             -Dsonar.projectKey=test \
