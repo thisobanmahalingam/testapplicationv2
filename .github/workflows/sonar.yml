@@ -41,5 +41,5 @@ jobs:
           sonar-scanner \
             -Dsonar.projectKey=test \
             -Dsonar.sources=. \
-            -Dsonar.host.url=https://public-toys-call.loca.lt \
+            -Dsonar.host.url=https://long-dots-cough.loca.lt/ \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
