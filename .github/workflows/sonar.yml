@@ -30,9 +30,9 @@ jobs:
 
       - name: Download SonarQube Scanner
         run: |
-          curl -sSLo sonarqube.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip
-          unzip sonarqube.zip -d $HOME/.sonar/
-          echo "$HOME/.sonar/sonar-scanner-4.6.2.2472-linux/bin" >> $GITHUB_PATH
+           curl -sSLo sonarqube.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip 
+           unzip sonarqube.zip -d $HOME/.sonar/
+           echo "$HOME/.sonar/sonar-scanner-5.0.1.3006-linux/bin" >> $GITHUB_PATH
 
       - name: SonarQube Scan
         env:
