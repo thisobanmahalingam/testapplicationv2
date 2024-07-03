@@ -1,0 +1,46 @@
+name: SonarQube Analysis
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  sonarQube:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'  # Specify the distribution here
+          java-version: '17'
+
+      - name: Cache SonarQube Scanner
+        uses: actions/cache@v2
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar-scanner
+
+      - name: Download SonarQube Scanner
+        run: |
+           curl -sSLo sonarqube.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip 
+           unzip sonarqube.zip -d $HOME/.sonar/
+           echo "$HOME/.sonar/sonar-scanner-5.0.1.3006-linux/bin" >> $GITHUB_PATH
+
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          JAVA_HOME: ${{ steps.setup-java.outputs.path }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=test \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=https://long-dots-cough.loca.lt/ \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
